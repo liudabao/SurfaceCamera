@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.liumin.surfacecamera.render.ArRender;
 import com.example.liumin.surfacecamera.render.CameraRender;
 import com.example.liumin.surfacecamera.ui.CameraGLSurfaceView;
 import com.example.liumin.surfacecamera.ui.CameraInterface;
@@ -43,8 +44,9 @@ public class MainActivity extends Activity {
 
     private void initUI(){
         glSurfaceView = (CameraGLSurfaceView)findViewById(R.id.camera_textureview);
-        CameraRender cameraRender=new CameraRender(glSurfaceView);
-        glSurfaceView.setRenderer(cameraRender);
+       // CameraRender cameraRender=new CameraRender(glSurfaceView);
+        ArRender arRender=new ArRender(glSurfaceView, this);
+        glSurfaceView.setRenderer(arRender);
         shutterBtn = (ImageButton)findViewById(R.id.btn_shutter);
     }
     private void initViewParams(){
